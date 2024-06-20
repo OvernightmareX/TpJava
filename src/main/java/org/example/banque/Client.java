@@ -22,17 +22,19 @@ public class Client {
         this.numDeTelephone = numDeTelephone;
     }
 
-    public void createAccount(double solde, TypeCompte type){
+    public void createAccount(TypeCompte type){
         if(comptes == null)
             comptes = new ArrayList<>();
+
+        double solde = BanqueIHM.userAmountChoice(TypeOperation.DEPOT);
 
         List<Operation> ops = new ArrayList<>();
         ops.add(new Operation(1, solde, TypeOperation.DEPOT));
 
         switch (type){
             case COURANT -> comptes.add(new CompteCourant(solde, this, ops));
-            case PAYANT -> comptes.add(new ComptePayant(solde, this, ops));
-            case EPARGNE -> comptes.add(new CompteEpargne(solde, this, ops));
+            case PAYANT -> comptes.add(new ComptePayant(solde, this, ops, BanqueIHM.userAccountParameter(type)));
+            case EPARGNE -> comptes.add(new CompteEpargne(solde, this, ops, BanqueIHM.userAccountParameter(type)));
         }
     }
 

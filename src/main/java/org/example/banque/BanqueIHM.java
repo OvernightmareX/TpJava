@@ -118,9 +118,9 @@ public class BanqueIHM {
         int inputChoice = userChoice(0,3);
 
         switch (inputChoice){
-            case 1 -> clt.createAccount(0, TypeCompte.COURANT);
-            case 2 -> clt.createAccount(0, TypeCompte.EPARGNE);
-            case 3 -> clt.createAccount(0, TypeCompte.PAYANT);
+            case 1 -> clt.createAccount(TypeCompte.COURANT);
+            case 2 -> clt.createAccount(TypeCompte.EPARGNE);
+            case 3 -> clt.createAccount(TypeCompte.PAYANT);
             case 0 -> displayMainMenu(clt);
         }
     }
@@ -173,6 +173,16 @@ public class BanqueIHM {
         switch (type){
             case DEPOT -> System.out.print("Quelle somme souhaitez-vous déposer : ");
             case RETRAIT -> System.out.print("Quelle somme souhaitez-vous retirer : ");
+        }
+        Scanner sc = new Scanner(System.in);
+        return sc.nextDouble();
+    }
+
+    public static double userAccountParameter(TypeCompte type){
+        switch (type) {
+            case EPARGNE -> System.out.print("Veuillez entrer le taux d'intérêt en % de votre compte epargne: ");
+            case PAYANT -> System.out.print("Veuillez entrer le coût d'opération du compte payant : ");
+            default -> throw new IllegalArgumentException();
         }
         Scanner sc = new Scanner(System.in);
         return sc.nextDouble();

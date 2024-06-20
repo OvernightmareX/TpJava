@@ -3,13 +3,14 @@ package org.example.banque;
 import java.util.List;
 
 public class CompteEpargne extends CompteBancaire{
-    private final float tauxInteret = 4f;
+    private double tauxInteret;
 
     public CompteEpargne() {
     }
 
-    public CompteEpargne(double solde, Client client, List<Operation> operations) {
+    public CompteEpargne(double solde, Client client, List<Operation> operations, double tauxInteret) {
         super(solde, client, operations);
+        this.tauxInteret = tauxInteret;
     }
 
     public void appliquerInteret(){
@@ -18,7 +19,7 @@ public class CompteEpargne extends CompteBancaire{
         this.solde += montantInteret;
     }
 
-    public float getTauxInteret() {
+    public double getTauxInteret() {
         return tauxInteret;
     }
 }
