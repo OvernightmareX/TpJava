@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Exo2 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        String userInput = "";
+        String userInput;
         int nbInput = 0;
         boolean isOk = false;
 
@@ -22,7 +22,6 @@ public class Exo2 {
             } catch (IllegalArgumentException e){
                 System.out.println("Le nombre saisie doit être positif.");
             }
-
         }while(!isOk);
 
         System.out.println("La racine de " + nbInput + " est de " + Math.sqrt(nbInput));
