@@ -6,7 +6,6 @@ public class Exo1 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int nombre=0;
-        boolean isInt = false;
         String userInput;
 
         do{
@@ -14,11 +13,11 @@ public class Exo1 {
             userInput = sc.nextLine();
             try {
                 nombre = Integer.parseInt(userInput);
-                isInt = true;
+                break;
             } catch (NumberFormatException e) {
                 System.out.println("La saisie n'est pas un entier !");
             }
-        }while(!isInt);
+        }while(true);
 
         System.out.println("Le nombre entrée est : " + nombre);
     }

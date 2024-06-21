@@ -18,7 +18,6 @@ public class StudentsIHM {
                 case 1 -> displayStudents();
                 case 2 -> addStudent();
             }
-
         }while(userChoice != 0);
 
         System.out.println("Merci d'avoir utilisé notre programme.");
@@ -46,11 +45,16 @@ public class StudentsIHM {
         students.add(student);
     }
 
+    public static void userNameInput(Student student){
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Veuillez entrer le nom de l'étudiant : ");
+        student.setName(sc.nextLine());
+    }
+
     public static void userAgeInput(Student student){
         Scanner sc = new Scanner(System.in);
-        String userInput = "";
-        int nbInput = 0;
-        boolean isOk = false;
+        String userInput;
+        int nbInput;
 
         do{
             System.out.print("Veuillez entrer l'age de l'étudiant : ");
@@ -58,20 +62,13 @@ public class StudentsIHM {
             try {
                 nbInput = Integer.parseInt(userInput);
                 student.setAge(nbInput);
-                isOk = true;
+                break;
             } catch (NumberFormatException e){
                 System.out.println("Le nombre saisie doit être un entier.");
             } catch (InvalidAgeException e){
                 System.out.println("Le nombre saisie doit être positif.");
             }
-
-        }while(!isOk);
-    }
-
-    public static void userNameInput(Student student){
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Veuillez entrer le nom de l'étudiant : ");
-        student.setName(sc.nextLine());
+        }while(true);
     }
 
     public static int userChoice(int minChoice, int maxChoice){
