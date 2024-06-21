@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Exo1 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int nombre;
+        int nombre=0;
         boolean isInt = false;
         String userInput;
 
@@ -19,5 +19,7 @@ public class Exo1 {
                 System.out.println("La saisie n'est pas un entier !");
             }
         }while(!isInt);
+
+        System.out.println("Le nombre entrée est : " + nombre);
     }
 }
