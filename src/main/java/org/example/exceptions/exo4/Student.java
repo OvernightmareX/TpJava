@@ -24,8 +24,12 @@ public class Student {
         this.name = name;
     }
 
-    public void setAge(int age) throws InvalidAgeException {
+    public void setAge(int age){
+        //On vérifie que l'age n'est pas négatif
+        //Si l'age est negatif : on throw notre exception personnalisée "InvalidAgeException" et on ne regarde pas le suite.
         if(age < 0) throw new InvalidAgeException("L'age ne peut pas être négatif.");
+
+        //Sinon on continue et on set normalement l'age.
         this.age = age;
     }
 
